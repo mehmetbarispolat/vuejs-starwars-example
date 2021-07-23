@@ -11,3 +11,7 @@ To install the node packages, firstly execute ***npm install*** on your terminal
 • Add back button or home button to detail page
 
 • Use vuex for storing data
+
+• Adjustment of file structure
+
+• Add Dockerfile

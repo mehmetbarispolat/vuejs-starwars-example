@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="btn">
+      <img id="prev-btn" @click="clickedPreviousButton" v-show="prev" src="../assets/right-arrow.svg" width="5%" height="5%">
+      <img id="next-btn" @click="clickedNextButton" v-show="next" src="../assets/right-arrow.svg" width="5%" height="5%">
+    </div>
     <input v-model="searchVal" />
     <StarShipList :starShipsList="starShips" />
     <div class="error" v-if="starShips.length <= 0 || statusCode === 204">
@@ -22,6 +26,8 @@ export default {
       starShips: [],
       searchVal: "",
       statusCode: 0,
+      next: '',
+      prev: ''
     };
   },
   mounted() {
@@ -31,6 +37,8 @@ export default {
       axios.get("https://swapi.dev/api/starships/").then((response) => {
         this.starShips = response.data.results;
         this.statusCode = response.status;
+        this.prev = response.data.previous;
+        this.next = response.data.next;
       });
     });
   },
@@ -43,6 +51,37 @@ export default {
         });
     },
   },
+  methods: {
+    clickedPreviousButton: function() {
+      this.loading = true;
+      axios
+        .get(this.prev)
+        .then((response) => {
+          this.starShips = response.data.results;
+          this.statusCode = response.status;
+          this.prev = response.data.previous;
+          this.next = response.data.next;
+        })
+        .then(() => {
+          this.loading = false;
+        });
+    },
+    clickedNextButton: function() {
+      this.loading = true;
+      axios
+        .get(this.next)
+        .then((response) => {
+          this.starShips = response.data.results;
+          this.statusCode = response.status;
+          this.prev = response.data.previous;
+          this.next = response.data.next;
+        })
+        .then(() => {
+          this.loading = false;
+        });
+
+    }
+  }
 };
 </script>
 
@@ -65,5 +104,19 @@ input:focus {
 }
 .error {
   color: red;
+}
+.btn {
+  display: inline;
+}
+#prev-btn {
+  position: absolute;
+  left: 0;
+  border: 1px solid black;
+  transform: rotate(180deg);
+}
+#next-btn {
+  position: absolute;
+  right: 0;
+  border: 1px solid black;
 }
 </style>

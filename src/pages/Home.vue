@@ -53,7 +53,10 @@ export default {
       axios
         .get(`https://swapi.dev/api/starships/?search=${val}`)
         .then((response) => {
+          console.log(response)
           this.starShips = response.data.results;
+          this.prev = response.data.previous;
+          this.next = response.data.next;
         });
     },
   },

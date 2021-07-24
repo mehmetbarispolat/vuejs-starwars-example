@@ -8,7 +8,7 @@
       <img id="prev-btn" @click="clickedPreviousButton" v-show="prev" src="../assets/right-arrow.svg" width="5%" height="5%">
       <img id="next-btn" @click="clickedNextButton" v-show="next" src="../assets/right-arrow.svg" width="5%" height="5%">
     </div>
-    <input v-model="searchVal" />
+    <input v-model="searchVal" placeholder="Please Enter Input" />
     <StarShipList :starShipsList="starShips" />
     <div class="error" v-if="starShips.length <= 0 || statusCode === 204">
       <p>
@@ -92,6 +92,10 @@ export default {
 </script>
 
 <style scoped>
+  ::placeholder {
+    color: #e26d5c;
+    font-weight: 550;
+  }
   input {
     border: none;
     width: 300px;

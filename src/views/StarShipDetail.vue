@@ -1,5 +1,8 @@
 <template>
   <div class="detail">
+    <div class="detail-image">
+      <img src="../assets/starship.jpeg" width="400px" />
+    </div>
     <div class="row" v-for="(detail, index) in detailList" :key="index">
       <span>{{ detail.text }} </span>
       <h4>{{ starship[detail.key] }}</h4>
@@ -38,24 +41,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.detail {
-  margin-left: 40%;
-}
-h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-left: 3px;
-  padding-top: 3px;
-}
-span {
-  font-size: 20px;
-  color: black;
-  font-weight: 500;
-}
-.row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 45px;
-}
+  .detail {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -150px;
+    
+  }
+  .detail-image {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 3px;
+    padding-top: 3px;
+  }
+  span {
+    font-size: 20px;
+    color: #FFE300;
+    font-weight: 500;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+  }
 </style>

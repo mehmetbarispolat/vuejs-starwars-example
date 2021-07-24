@@ -52,16 +52,17 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h2 {
-  color: black;
+  color: #FFE300;
   font-size: 24px;
   font-weight: 800;
 }
 h3 {
-  color: grey;
+  color: whitesmoke;
   font-size: 18px;
   font-weight: 500;
 }
 .card {
+  padding-top: 8px;
   position: relative;
   display: flex;
   flex: 1;
@@ -70,16 +71,17 @@ h3 {
 }
 .card:hover {
   transform: scale(1.1);
-  border: red 1px solid;
+  border: #FFE300 1px solid;
 }
 .image-wrapper > img {
   width: 200px;
 }
 .rating {
+  font-weight: 600;
   position: absolute;
   top: 0;
   right: 0;
-  background-color: lightgreen;
+  background-color: #FFE300;
   border-radius: 70%;
   padding: 8px;
 }

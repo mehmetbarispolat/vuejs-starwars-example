@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="detail-image">
-      <img src="../assets/starship.jpeg" width="400px" />
+      <img src="../assets/starship.jpeg" />
     </div>
     <div class="row" v-for="(detail, index) in detailList" :key="index">
       <span>{{ detail.text }} </span>
@@ -14,6 +14,9 @@
 import axios from "axios";
 export default {
   name: "StarShipDetail",
+  props: {
+    id: Number
+  },
   data() {
     return {
       starship: {},
@@ -30,7 +33,7 @@ export default {
     this.$nextTick(function () {
       // Code that will run only after the
       // entire view has been rendered
-      let id = this.$route.params.id;
+      let id = this.id;
       axios.get(`https://swapi.dev/api/starships/${id}/`).then((response) => {
         this.starship = response.data;
       });
@@ -43,16 +46,16 @@ export default {
 <style scoped>
   .detail {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -50px;
+    color: white;
+    background: rgba(0, 0, 0, 0.9);
+    margin-left: 250px;
     margin-top: -150px;
-    
   }
   .detail-image {
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: auto;
   }
   h4 {
     font-size: 18px;
@@ -70,5 +73,6 @@ export default {
     flex-direction: row;
     align-items: center;
     height: 45px;
+    margin-left: 5px;
   }
 </style>

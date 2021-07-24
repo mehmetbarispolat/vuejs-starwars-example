@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 export default {
   name: "App",
 };
@@ -22,7 +23,5 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-left: 20%;
-    margin-right: 20%;
   }
 </style>

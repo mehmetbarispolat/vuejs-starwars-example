@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { router } from "../router/index";
+import StarShipDetail from './StarShipDetail'
 
 export default {
   name: "StarShipCard",
@@ -41,9 +41,17 @@ export default {
   methods: {
     clickedCard: function () {
       let detailId = this.starship.url.split("/").reverse()[1];
-      router.push({
-        path: `/detail/${detailId}`,
-      });
+      this.$FModal.show(
+        { 
+          component: StarShipDetail,
+          width: 1000,
+          maxHeight: '100%',
+          placement: 'center center'
+        }, 
+        { 
+          id: detailId
+        }
+      )
     },
   },
 };

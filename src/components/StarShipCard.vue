@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="clickedCard">
+  <div class="card" @click="clickedCard" v-scroll-reveal.reset>
     <div class="image-wrapper">
       <img src="../assets/starship.jpeg" />
       <div class="rating">

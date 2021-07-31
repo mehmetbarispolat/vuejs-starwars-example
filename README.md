@@ -1,5 +1,8 @@
 # vuejs-starwars-example
 
+## Website
+https://star-wars-vue-example.herokuapp.com
+
 ## **Working GUIDE**
 
 ## Project setup
